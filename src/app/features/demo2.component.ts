@@ -1,5 +1,6 @@
-import { Component, signal } from '@angular/core';
+import { Component, effect, inject, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-demo2',
@@ -15,7 +16,16 @@ import { CommonModule } from '@angular/common';
   ]
 })
 export class Demo2Component {
- counter = signal(0); // inizializziamo il signal con il valore 0
+ counter = signal(1); // inizializziamo il signal con il valore 0 da uno se applichiamo un valore json placeholder
+ http = inject(HttpClient);
+
+ constructor() {
+    effect( () => { // invochiamo la funzione effect
+    //  console.log('here!', this.counter()); // stampiamo il valore del signal
+     this.http.get(`https://jsonplaceholder.typicode.com/users/${this.counter()}`) // chiamata fech all'url
+     .subscribe(console.log)// effettuiamo una chiamata get all'url e stampiamo il risultato
+    })
+ }
 
  inc() {
   // this.counter.set(this.counter() + 1); // incrementiamo il valore del signal di 1
@@ -28,7 +38,7 @@ export class Demo2Component {
 
 }
 
- /* i signals ovvero i segnali sono un nuovo sistema impplementato da Angular15+ e molti altri framework
+ /* i signals ovvero i segnali sono un nuovo sistema implementato da Angular15+ e molti altri framework
   che ci permettono di tracciare come e dove una proprietà cambia,
   il vero vantaggio nell'utilizzare i signal rispetto ad una classica proprietà utilizzata
   in un componente visualizzata in un template è che possiamo ottimizzare i render */
@@ -53,3 +63,6 @@ export class Demo2Component {
    sia il bundle dell'applicazione che avremmo un elemento in meno,
    ma anche risparmiando risorse visto che avremo dei delle operazioni dei calcoli,
    dei controlli, listener in meno nell'applicazione */
+
+   /* la funzione effect effettua una operazione quando un valore di un signal cambia,
+   es. quando cambia il counter vogliamo invocare un API o cambiare una router o fare semplicemente un console.log */
