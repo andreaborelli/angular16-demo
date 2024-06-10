@@ -1,4 +1,4 @@
-import { Component, effect, inject, signal } from '@angular/core';
+import { Component, computed, effect, inject, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 
@@ -10,7 +10,14 @@ import { HttpClient } from '@angular/common/http';
     <h2>Counter Demo with Signal</h2>
     <pre>{{ counter()}}</pre> <!-- stampiamo il valore del signal -->
     <button (click)="inc()">+</button>
-    <button (click)="reset()">reset</button>
+    <!-- <button (click)="reset()" *ngIf="counter() !== 0">reset</button> -->
+      <!-- questa espressione *ngIf="counter() !== 0" viene processata troppe volte,
+       ogni volta che la change detection trigghera da questo componente
+       o da altri componenti dell'applicazione per veficarlo
+       spostiamo la loggica all'interno della funzione isZero()
+       mettiamo il Not! perchè vogliamo che sia vilualizzato il reset quando NON è zero-->
+    <button (click)="reset()" *ngIf="!isZero()">reset</button>
+
   `,
   styles: [
   ]
@@ -35,6 +42,12 @@ export class Demo2Component {
  reset() {
   this.counter.set(0); // resettiamo il valore del signal a 0
  }
+
+ isZero = computed(() =>{
+  console.log('render', this.counter());
+    // return this.counter() === 0; // restituiamo un valore booleano se il counter è uguale a 0
+    return this.counter() === 0;
+ })
 
 }
 
