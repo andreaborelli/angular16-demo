@@ -43,7 +43,7 @@ export class Demo2Component {
   this.counter.set(0); // resettiamo il valore del signal a 0
  }
 
- isZero = computed(() =>{
+ isZero = computed(() => { // signal derivato, sorta di stato derivato dal signal principale
   console.log('render', this.counter());
     // return this.counter() === 0; // restituiamo un valore booleano se il counter è uguale a 0
     return this.counter() === 0;
