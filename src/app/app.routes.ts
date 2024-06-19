@@ -5,6 +5,7 @@ export const routes: Routes = [ // carico con lazy loading un componente specifi
   // usa i dinamic import di typescript per caricare il modulo è l'operazione è asincrona
   { path: 'demo2', loadComponent: () => import('./features/demo2.component').then(c => c.Demo2Component) },
   { path: 'demo3', loadComponent: () => import('./features/demo3.component').then(c => c.Demo3Component)},
+  { path: 'demo4', loadComponent: () => import('./features/demo4.component').then(c => c.Demo4Component)},
   { path: '', redirectTo: 'demo1', pathMatch: 'full' }
 ];
 
