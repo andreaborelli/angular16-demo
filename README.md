@@ -1,27 +1,69 @@
-# Angular16Demo
+# Angular 16: new features and API
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.1.4.
+This update is part of the Angular Fundamentals course by [Fabio Biondi](https://www.fabiobiondi.dev/).
 
-## Development server
+## Features
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+- **Standalone Components**
+- **Signals**
+- **New API**
+- **@Input Decorator**
 
-## Code scaffolding
+## Installation
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+To get a local copy up and running, follow these simple steps:
 
-## Build
+### Prerequisites
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+- Node.js and npm installed on your machine.
+- Angular CLI installed globally (`npm install -g @angular/cli`).
 
-## Running unit tests
+### Steps
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+1. Clone the repository:
+   ```sh
+   git clone https://github.com/andreaborelli/angular16-demo.git
+2. Navigate to the project directory:
+   ```sh
+   cd angular16-demo
+3. Open project in vscode:
+   ```sh
+   code .
+4. Install dependencies:
+   ```sh
+    npm install
+5. Install JSON Server:
+   ```sh
+   npm i json-server -D
+6. Start JSON Server new open terminal:
+   ```sh
+   npm run server
+7. In a new terminal, run the app:
+   ```sh
+   ng serve
+8. Open your browser and navigate to http://localhost:4200/
 
-## Running end-to-end tests
+## Usage
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+Start the server and ng serve in separate terminals
 
-## Further help
+## License
+Distributed under the MIT License. See LICENSE for more information.
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+## Acknowledgments
+[Fabio Biondi](https://www.fabiobiondi.dev/) for the amazing Angular Fundamentals course.
+All contributors and open-source libraries used in this project.
+
+
+
+
+   
+
+
+
+
+
+
+
+
+
