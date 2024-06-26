@@ -1,12 +1,12 @@
 import { ApplicationConfig } from '@angular/core';
-import { provideRouter } from '@angular/router';
+import { provideRouter, withComponentInputBinding } from '@angular/router';
 import { provideHttpClient } from '@angular/common/http';
 
 import { routes } from './app.routes';
 
 export const appConfig: ApplicationConfig = {
   providers: [
-    provideRouter(routes),
+    provideRouter(routes, withComponentInputBinding()),
     provideHttpClient() // fornisce il servizio HttpClient per inviare richieste HTTP a un server e ricevere le risposte
 
    ] // routes è un array di oggetti che rappresentano le rotte dell'applicazione

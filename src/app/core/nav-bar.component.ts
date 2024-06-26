@@ -14,6 +14,7 @@ import { RouterLink } from '@angular/router';
     <button routerLink="demo2">demo2</button>
     <button routerLink="demo3">demo3</button>
     <button routerLink="demo4">demo4</button>
+    <button routerLink="demo5">demo5</button>
   `,
   styles: [
   ]
