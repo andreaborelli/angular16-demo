@@ -7,8 +7,14 @@ export const routes: Routes = [ // carico con lazy loading un componente specifi
   { path: 'demo3', loadComponent: () => import('./features/demo3.component').then(c => c.Demo3Component)},
   { path: 'demo4', loadComponent: () => import('./features/demo4.component').then(c => c.Demo4Component)},
 
-  { path: 'demo5', loadComponent: () => import('./features/demo5.component').then(c => c.Demo5Component),
-  data : {title: 'Andrea Borelli'}}, // passo un dato al componente
+  {
+    path: 'demo5', loadComponent: () => import('./features/demo5.component').then(c => c.Demo5Component),
+    data : {title: 'Andrea Borelli'} // passo un dato al componente
+  },
+   {
+    path: 'demo5/:title', // passo un parametro al componente
+    loadComponent: () => import('./features/demo5.component').then(c => c.Demo5Component),
+  },
   { path: '', redirectTo: 'demo1', pathMatch: 'full' }
 ];
 
