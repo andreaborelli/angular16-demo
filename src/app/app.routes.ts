@@ -11,6 +11,8 @@ export const routes: Routes = [ // carico con lazy loading un componente specifi
     path: 'demo5', loadComponent: () => import('./features/demo5.component'),
     data : {title: 'Andrea Borelli'} // passo un dato al componente
   },
+  { path: 'demo6', loadComponent: () => import('./features/demo6.component')},
+  { path: 'demo7', loadComponent: () => import('./features/demo7.component')},
   { path: '', redirectTo: 'demo1', pathMatch: 'full' }
 ];
 
