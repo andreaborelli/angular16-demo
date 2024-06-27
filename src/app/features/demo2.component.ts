@@ -22,7 +22,7 @@ import { HttpClient } from '@angular/common/http';
   styles: [
   ]
 })
-export class Demo2Component {
+export default class Demo2Component {
  counter = signal(1); // inizializziamo il signal con il valore 0 da uno se applichiamo un valore json placeholder
  http = inject(HttpClient);
 

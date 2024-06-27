@@ -26,7 +26,7 @@ import { CommonModule } from '@angular/common';
   styles: [
   ]
 })
-export class Demo3Component {
+export default class Demo3Component {
 
   http = inject(HttpClient);  // iniettiamo il servizio HttpClient
 

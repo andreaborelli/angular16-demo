@@ -21,7 +21,7 @@ import { CommonModule } from '@angular/common';
   styles: [
   ]
 })
-export class Demo1Component {
+export default class Demo1Component {
 
   // constructor(private http: HttpClient) { // istanziato classe HttpClient,
   //   http.get('https://jsonplaceholder.typicode.com/users')

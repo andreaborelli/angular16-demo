@@ -32,7 +32,7 @@ import { Meteo } from '../model/meteo';
   styles: [
   ]
 })
-export class Demo4Component {
+export default class Demo4Component {
 
   // converto un signal in un observable per poter sfruttare tutti gli operatori di rxjs che ci fanno comodo
 
