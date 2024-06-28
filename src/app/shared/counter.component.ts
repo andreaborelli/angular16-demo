@@ -7,7 +7,7 @@ import { CommonModule } from '@angular/common';
   imports: [CommonModule],
   template: `
 
-    <h1>Counter: {{ counter }}</h1>
+    <h1>Counter: {{ value }}</h1>
   `,
   styles: [
   ]
@@ -25,7 +25,7 @@ export class CounterComponent {
   per passare la proprietà in ingresso al component.  */
 
 
-  @Input({alias: 'value'})
-    counter: number | undefined;
+  @Input({required: true})
+    value: number | undefined;
 
 }
