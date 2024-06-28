@@ -1,4 +1,4 @@
-import { Component, Input, numberAttribute } from '@angular/core';
+import { Component, Input, booleanAttribute, numberAttribute } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -7,15 +7,23 @@ import { CommonModule } from '@angular/common';
   imports: [CommonModule],
   template: `
 
-    Counter: {{ value }} 
+    Counter: {{ value }}
+    <span *ngIf="showUnit">K</span>
   `,
   styles: [
   ]
 })
 export class CounterComponent {
 
-  @Input({transform: numberAttribute})
+  @Input()
   value: number | undefined;
+
+  @Input({transform: booleanAttribute}) // booleanAttribute è un alias di boolean in react esiste da tempo
+  showUnit: boolean = false;
+
+
+  // @Input({transform: numberAttribute})
+  // value: number | undefined;
 
 
   /* per passare un valore di tipo number ad una proprietà,
