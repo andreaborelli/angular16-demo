@@ -7,25 +7,32 @@ import { CommonModule } from '@angular/common';
   imports: [CommonModule],
   template: `
 
-    <h1>Counter: {{ value }}</h1>
+    Counter: {{ value }} K
   `,
   styles: [
   ]
 })
 export class CounterComponent {
 
-  /* per far si che all'interno di un componente
-  possiamo usare la parola es. counter,
-  è dall'esterno sia passata come es. value,
-  per fare questo possiamo avere
-  una proprietà counter nel component,
-  che può essere utilizzata nel template,
-  ma definire l'alias chiamato value
-  che sarà possibile utilizzare
-  per passare la proprietà in ingresso al component.  */
+   @Input({
+    transform: (value: number) => {
+      return value * 1000;
+    }
+  })
+  value: number | undefined;
+
+  /* ci sono situazioni in cui vogliamo passare
+  una proprietà in Input ad un componente,
+  ma vogliamo anche modificarla/trasformarla,
+  effettuando una trasformazione
+  direttamente nella proprietà in @Input
+  tramite il decoratore, in particolar modo la proprietà transform
+  che ci permette di ricevere il value: number,
+  e di moltiplicarlo per 1000, e non serve nemmeno *NgIf,
+  perchè anche se in trasform avessimo un undefined sarebbe restituito comunque un valore,
+  è consigliato, in questo caso utilizzare insieme a trasform
+  la proprietà required per assicurarci che il valore sia passato */
 
 
-  @Input({required: true})
-    value: number | undefined;
 
 }
