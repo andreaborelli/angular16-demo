@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, numberAttribute } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -7,19 +7,29 @@ import { CommonModule } from '@angular/common';
   imports: [CommonModule],
   template: `
 
-    Counter: {{ value }} K
+    Counter: {{ value }} 
   `,
   styles: [
   ]
 })
 export class CounterComponent {
 
-   @Input({
-    transform: (value: number) => {
-      return value * 1000;
-    }
-  })
+  @Input({transform: numberAttribute})
   value: number | undefined;
+
+
+  /* per passare un valore di tipo number ad una proprietà,
+bisogna usare le parentesi quadre  <app-counter [value]="1"/>,
+per poter passare un valore number si con che senza le quadre,
+bisogna che nel utiliziamo nel decoratore @Input
+l'opzione transform: numberAttribute */
+
+  //  @Input({
+  //   transform: (value: number) => {
+  //     return value * 1000;
+  //   }
+  // })
+  // value: number | undefined;
 
   /* ci sono situazioni in cui vogliamo passare
   una proprietà in Input ad un componente,
